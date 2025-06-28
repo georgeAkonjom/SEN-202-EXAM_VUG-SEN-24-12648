@@ -1,0 +1,3 @@
+username: admin
+password: 12345678
+email: georgeakoonjom003@gmail.com
