@@ -9,10 +9,14 @@ class Staff_base(models.Model):
     def get_role():
         return "staffbase parent"
 
+class Address(models.Model):
+    address=models.CharField(max_lenght=200)
+
 
 class Manager(Staff_base):
     department=models.CharField(max_length=200)
     has_company_card=models.BooleanField(default=True)
+    applicant=models.ForeignKey(Applicant, on_delete=models.CASCADE)
 
     def get_role():
         return "Manager"
@@ -20,6 +24,7 @@ class Manager(Staff_base):
 class Intern(Staff_base):
     mentor=models.ForeignKey(Manager, on_delete=models.CASCADE)
     internship_end=models.DateField()
+    applicant=models.ForeignKey(Applicant, on_delete=models.CASCADE)
 
     def get_role():
         return "Intern"
